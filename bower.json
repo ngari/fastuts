@@ -5,8 +5,9 @@
 	"main": "fastuts.js",
 	"ignore":
 	[
-		".gitignore",
-		".json"
+		"**/.*",
+		"*.md",
+		"bower.json"
 	],
 	"dependencies":
 	{
