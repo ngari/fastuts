@@ -17,7 +17,7 @@ A faster way to display quick tutorials for your application or website
 
 ### How to use?
 
-##### One-line-to-go
+##### Fast way
 
 Don't have time? Do it.
 
