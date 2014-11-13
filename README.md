@@ -15,6 +15,14 @@ A faster way to display quick tutorials for your application or website
 
 ---
 
+### Installation
+
+Install via [Bower](http://bower.io) ```bower install --save fastuts```
+
+Download via [GitHub](https://github.com/guimadaleno/fastuts/archive/master.zip)
+
+---
+
 ### How to use?
 
 ##### Fast way
