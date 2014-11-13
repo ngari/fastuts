@@ -1,5 +1,6 @@
 {
 	"name": "fastuts",
+	"author": "Guilherme Augusto Madaleno",
 	"version": "1.0.0",
 	"main": "fastuts.js",
 	"ignore":
