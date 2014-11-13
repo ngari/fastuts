@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>fastuts.js</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="fastuts.css">
+
+	</head>
+
+	<body>
+
+		<div style="width: 960px; margin: auto; margin-top: 40px;">
+
+			<h1>fastuts.js</h1>
+			<p class="lead fastuts" data-fastuts-tip="First you need to read this">A fast way to display quick tutorials in your application or website using jQuery.</p>
+			<p><button type="button" class="btn btn-success test-click">Let's get started</button></p>
+
+			<hr>
+			
+			<div style="width: 100%; display: inline-block;">
+				<div style="width: 100%;">
+					<div class="col-lg-6 fastuts" data-fastuts-tip="After it, you read this">
+					  <h4>Subheading</h4>
+					  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+					  <h4>Subheading</h4>
+					  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+					  <h4>Subheading</h4>
+					  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+					</div>
+
+					<div class="col-lg-6 fastuts" data-fastuts-tip="Then, you read this...">
+					  <h4>Subheading</h4>
+					  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+					  <h4>Subheading</h4>
+					  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+					  <h4>Subheading</h4>
+					  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+					</div>
+				</div>
+				<div class="col-lg-6 fastuts" data-fastuts-tip="Once more tip...">
+					<h4>Subheading</h4>
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+					<h4>Subheading</h4>
+					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+					<h4>Subheading</h4>
+					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+				</div>
+				<div class="col-lg-6 fastuts" data-fastuts-tip="And finally, this. Well done!">
+					<img src="http://lorempixel.com/450/227/" alt="">
+				</div>
+			</div>
+
+			<hr>
+
+			<p>Like it? <a href="https://github.com/guimadaleno/fastuts.js" target="_blank">Let the star shine</a>.</p>
+
+		</div>
+
+	</body>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="fastuts.min.js"></script>
+	<script>
+
+		$('.test-click').click(function()
+		{
+
+			$('.fastuts').fastuts
+			({
+
+				/* Basic settings */
+
+				settings:
+				{
+					spacing: '40px',
+					time: 0.2,
+					allowKeys: true
+				},
+
+				/* Buttons settings */
+
+				buttons:
+				{
+
+					close:
+					{
+
+						class: '.fastuts-button-close',
+						text: 'Close',
+						callback: function ()
+						{
+							console.log('Clicked close button');
+						}
+
+					},
+
+					prev:
+					{
+
+						class: '.fastuts-button-prev',
+						text: '&#10094;',
+						callback: function (index, element)
+						{
+							console.log('Clicked back button and moving to element ' + index);
+						}
+
+					},
+
+					next:
+					{
+
+						class: '.fastuts-button-next',
+						text: '&#10095;',
+						callback: function (index, element)
+						{
+							console.log('Clicked next button and moving to element ' + index);
+						}
+
+					}
+
+				},
+
+				/* Tooltip class */
+
+				tooltip:
+				{
+					
+				},
+
+				overlay:
+				{
+					color: 'rgba(0,0,0,0.8)',
+					allowEscapeKey: true,
+					onClose: function ()
+					{
+						console.log('Clicked on overlay to close');
+					}
+				},
+
+				onReady: function ()
+				{
+					console.log('Fastuts ready!');
+				},
+
+			});
+
+		});
+
+	</script>
+
+</html>

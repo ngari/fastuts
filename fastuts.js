@@ -1,3 +1,12 @@
+/*
+	fastuts.js
+
+	Developed by Guilherme Augusto Madaleno <guimadaleno@me.com>
+	www.guimadaleno.com
+	(C) 2014 All rights reserved
+	Licensed under GNU GPL
+*/
+
 $.fn.fastuts = function (options)
 {
 
@@ -13,7 +22,7 @@ $.fn.fastuts = function (options)
 	var textButtonClose 		= (options && options.buttons && options.buttons.close) ? options.buttons.close.text 	: "X";
 	var textButtonNext 			= (options && options.buttons && options.buttons.next) 	? options.buttons.next.text 	: "&#10095;";
 	var textButtonPrev 			= (options && options.buttons && options.buttons.prev) 	? options.buttons.prev.text 	: "&#10094;";
-	
+
 	var fn =
 	{
 		init: function()
