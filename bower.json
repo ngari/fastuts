@@ -1,0 +1,14 @@
+{
+	"name": "fastuts",
+	"version": "1.0.0",
+	"main": "fastuts.js",
+	"ignore":
+	[
+		".gitignore",
+		".json"
+	],
+	"dependencies":
+	{
+		"jquery": "~2.x"
+	}
+}
