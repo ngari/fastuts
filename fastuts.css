@@ -1,0 +1,94 @@
+.fastuts-holder
+{
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+
+.fastuts-buttons
+{
+	width: 100%;
+	height: 100%;
+	font-size: 32px;
+}
+
+	.fastuts-buttons a
+	{
+		display: inline-block;
+		padding: 5px 10px;
+		font-size: 16px;
+		margin: 20px 0 20px 10px;
+		border-radius: 5px;
+		background-color: #ffffff;
+	}
+
+		.fastuts-buttons a:first-child
+		{
+			margin-left: 20px;
+		}
+
+		.fastuts-buttons a:hover
+		{
+			text-decoration: none;
+			border-color: #428bca;
+		}
+
+		.fastuts-buttons a:active
+		{
+			opacity: 0.8;
+		}
+
+/* Tooltip text */
+
+.fastuts-text
+{
+	margin: 20px 20px 0 20px;
+	font-size: 18px;
+}
+
+/* Tooltip box */
+
+.fastuts-tooltip
+{
+	display: block;
+	position: absolute;
+	width: 400px;
+	background-color: #428bca;
+	color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+	/* Tooltip arrows */
+
+	.fastuts-tooltip.fastuts-tooltip-arrow-top:after,
+	.fastuts-tooltip.fastuts-tooltip-arrow-bottom:after
+	{
+		content: "";
+		position: absolute;
+		top: -15px;
+		left: 50%;
+		margin-left: -15px;
+		border-style: solid;
+		border-color: #428bca transparent;
+		display: block;
+		width: 0;
+		z-index: 1;
+	}
+
+	/* Top arrow */
+
+	.fastuts-tooltip.fastuts-tooltip-arrow-top:after
+	{
+		border-width: 0 15px 15px;
+	}
+
+	/* Bottom arrow */
+
+	.fastuts-tooltip.fastuts-tooltip-arrow-bottom:after
+	{
+		border-width: 15px 15px 0;
+		height: 100%;
+		top: 100%;
+	}

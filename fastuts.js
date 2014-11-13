@@ -1,120 +1,126 @@
 $.fn.fastuts = function (options)
 {
 
+	var classButtonClose 		= (options && options.buttons && options.buttons.close) ? options.buttons.close.class 	: ".fastuts-buttons-close";
+	var classButtonNext 		= (options && options.buttons && options.buttons.next) 	? options.buttons.next.class 	: ".fastuts-buttons-next";
+	var classButtonPrev 		= (options && options.buttons && options.buttons.prev) 	? options.buttons.prev.class 	: ".fastuts-buttons-prev";
+	var classTooltip 			= ".fastuts-tooltip";
+	var currentIndex 			= 0;
 	var element 				= this;
 	var elementSelector 		= this.selector;
 	var elementSize 			= $(element).size();
-
-	var classButtonNext 		= (options && options.buttons && options.buttons.next) ? options.buttons.next.class : ".fastuts-buttons-next";
-	var classButtonPrev 		= (options && options.buttons && options.buttons.prev) ? options.buttons.prev.class : ".fastuts-buttons-prev";
-	var classButtonClose 		= (options && options.buttons && options.buttons.close) ? options.buttons.close.class : ".fastuts-buttons-close";
-
-	var textButtonNext 			= (options && options.buttons && options.buttons.next) ? options.buttons.next.text : "&#10095;";
-	var textButtonPrev 			= (options && options.buttons && options.buttons.prev) ? options.buttons.prev.text : "&#10094;";
-	var textButtonClose 		= (options && options.buttons && options.buttons.close) ? options.buttons.close.text : "X";
-
-	var classTooltip 			= (options && options.buttons && options.tooltip.class) ? options.tooltip.class : ".fastuts-tooltip";
-
 	var holderIndex 			= 1;
-	var currentIndex 			= 0;
-
-	var fastuts =
+	var textButtonClose 		= (options && options.buttons && options.buttons.close) ? options.buttons.close.text 	: "X";
+	var textButtonNext 			= (options && options.buttons && options.buttons.next) 	? options.buttons.next.text 	: "&#10095;";
+	var textButtonPrev 			= (options && options.buttons && options.buttons.prev) 	? options.buttons.prev.text 	: "&#10094;";
+	
+	var fn =
 	{
-
-		/* Where everything starts */
-
 		init: function()
 		{
 
-			/* Wait til all elements are rendered */
+			$('body').append('<div id="fastuts-main-holder" class="fastuts-main-holder" style="display: none;"><div class="fastuts-overlay"></div><div class="fastuts-holder"><div class="' + classTooltip.replace('.', '') + '"><div class="fastuts-text"></div><div class="fastuts-buttons"><a href="#" class="' + classButtonClose.replace('.', '') + '">' + textButtonClose + '</a><a href="#" class="' + classButtonPrev.replace('.', '') + '">' + textButtonPrev + '</a><a href="#" class="' + classButtonNext.replace('.', '') + '">' + textButtonNext + '</a></div></div></div></div>');
 
-			$(window).load(function ()
+			if (elementSize)
 			{
+				fn.displayBlock (element[(holderIndex - 1)]);
+				fn.displayButtons (1, elementSize);
 
-				/* Add fastuts elements to body */
+				if (options && options.onReady && $.type(options.onReady) === 'function')
+					options.onReady();
 
-				$('body').append('<div class="fastuts-main-holder"><div class="fastuts-holder"><div class="' + classTooltip.replace('.', '') + '"><div class="fastuts-text"></div><div class="fastuts-buttons"><a href="#" class="' + classButtonClose.replace('.', '') + '">' + textButtonClose + '</a><a href="#" class="' + classButtonPrev.replace('.', '') + '">' + textButtonPrev + '</a><a href="#" class="' + classButtonNext.replace('.', '') + '">' + textButtonNext + '</a></div></div></div></div>');
-
-				/* If there are elements found */
-
-				if (elementSize)
+				$(classButtonPrev).off('click').on('click', function()
 				{
-
-					/* Displays fastuts */
-
-					fastuts.displayBlock (element[(holderIndex - 1)]);
-					fastuts.displayButtons (1, elementSize);
-
-					/* Callback onReady */
-
-					if (options && options.onReady && $.type(options.onReady) === 'function')
-						options.onReady();
-
-					/* Events on click button back */
-
-					$(classButtonPrev).off('click').on('click', function()
+					fn.prevBlock(function()
 					{
-
-						fastuts.prevBlock();
-
 						if (options && options.buttons && options.buttons.prev && options.buttons.prev.callback && $.type(options.buttons.prev.callback) === 'function')
 							options.buttons.prev.callback (currentIndex, element);
-
 						return false;
-
 					});
+				});
 
-					/* Events on click button next */
-
-					$(classButtonNext).off('click').on('click', function()
+				$(classButtonNext).off('click').on('click', function()
+				{
+					fn.nextBlock(function()
 					{
-
-						fastuts.nextBlock();
-
 						if (options && options.buttons && options.buttons.next && options.buttons.next.callback && $.type(options.buttons.next.callback) === 'function')
 							options.buttons.next.callback (currentIndex, element);
-
 						return false;
-
 					});
+				});
 
-					/* Events on click button close */
-
-					$(classButtonClose).off('click').on('click', function()
+				if (options && options.settings && options.settings.allowKeys == true)
+				{
+					$(document).keyup(function(e)
 					{
-
-						fastuts.hide();
-
-						if (options && options.buttons && options.buttons.close && options.buttons.close.callback && $.type(options.buttons.close.callback) === 'function')
-							options.buttons.close.callback (currentIndex, element);
-
-						return false;
-
+						if (e.keyCode == 37)
+						{
+							fn.prevBlock(function()
+							{
+								if (options && options.buttons && options.buttons.prev && options.buttons.prev.callback && $.type(options.buttons.prev.callback) === 'function')
+									options.buttons.prev.callback (currentIndex, element);
+								return false;
+							});
+						}
+						else if (e.keyCode == 39)
+						{
+							fn.nextBlock(function()
+							{
+								if (options && options.buttons && options.buttons.next && options.buttons.next.callback && $.type(options.buttons.next.callback) === 'function')
+									options.buttons.next.callback (currentIndex, element);
+								return false;
+							});
+						}
 					});
-
 				}
 
-			});
+				$(classButtonClose).off('click').on('click', function()
+				{
+					fn.hide();
+					if (options && options.buttons && options.buttons.close && options.buttons.close.callback && $.type(options.buttons.close.callback) === 'function')
+						options.buttons.close.callback ();
+					return false;
+				});
+
+				if (options && options.overlay && options.overlay.allowEscapeKey == true)
+				{
+					$(document).keyup(function(e)
+					{
+						if (e.keyCode == 27)
+						{
+							if (options && options.overlay && options.overlay.onClose && $.type(options.overlay.onClose) === 'function')
+								options.overlay.onClose ();
+
+							fn.hide();
+						}
+					});
+				}
+
+				$('.fastuts-overlay').off('click').on('click', function()
+				{
+					if (options && options.overlay && options.overlay.onClose && $.type(options.overlay.onClose) === 'function')
+						options.overlay.onClose ();
+					fn.hide();
+					return false;
+				});
+
+				$('#fastuts-main-holder').fadeIn(200);
+
+			}
 
 		},
-
-		/* Hide Fastuts */
 
 		hide: function ()
 		{
-			$('.fastuts-main-holder').fadeOut(200, function()
+			$('.fastuts-main-holder').fadeOut(100, function()
 			{
 				holderIndex = 1;
 				currentIndex = 0;
-				$(classTooltip).children('.fastuts-text').html(" ");
 			});
 		},
 
-		/* Displays next/previous buttons depending of slide state */
-
 		displayButtons: function (currentIndexNum, blocksNum)
 		{
-
 			if (currentIndexNum == 1)
 			{
 				$(classButtonPrev).hide();
@@ -130,20 +136,15 @@ $.fn.fastuts = function (options)
 				$(classButtonPrev).show();
 				$(classButtonNext).show();
 			}
-
 		},
-
-		/* Displays blocks */
 
 		displayBlock: function (block)
 		{
-
 			if ($(block).html())
 			{
-
 				var elementLocatiom 	= $(block).position();
 				var elementPosition 	= $(block).css('position');
-				var elementMargin 		= (options && options.settings && options.settings.spacing && options.settings.spacing.indexOf() == -1) ? parseInt(options.settings.spacing.replace('px', '')) : 0;
+				var elementMargin 		= (options && options.settings && options.settings.spacing && options.settings.spacing.indexOf() == -1) ? parseInt(options.settings.spacing.replace('px', '')) : 40;
 				var elementWidth		= parseInt($(block).css('width').replace('px', '')) + (elementMargin);
 				var elementHeight		= parseInt($(block).css('height').replace('px', '')) + (elementMargin);
 				var elementTop 			= ($.isNumeric(elementLocatiom.top)) ? (elementLocatiom.top - (elementMargin / 2)) : (elementMargin / 2);
@@ -195,9 +196,19 @@ $.fn.fastuts = function (options)
 					position: 'relative'
 				});
 
-				$('.fastuts-main-holder').css
+				$('.fastuts-overlay').css
 				({
 					position: 'fixed',
+					left: '0px',
+					top: '0px',
+					right: '0px',
+					bottom: '0px',
+					backgroundColor: (options && options.overlay && options.overlay.color) ? options.overlay.color : 'rgba(0,0,0,0.8)'
+				});
+
+				$('.fastuts-main-holder').css
+				({
+					position: 'absolute',
 					left: '0px',
 					top: '0px',
 					right: '0px',
@@ -210,28 +221,30 @@ $.fn.fastuts = function (options)
 
 		},
 
-		nextBlock: function ()
+		nextBlock: function (callback)
 		{
 			if (holderIndex < elementSize)
 			{
 				currentIndex = holderIndex = (holderIndex + 1);
-				fastuts.displayBlock(element[(holderIndex - 1)]);
-				fastuts.displayButtons(currentIndex, elementSize);
+				fn.displayBlock(element[(holderIndex - 1)]);
+				fn.displayButtons(currentIndex, elementSize);
+				callback();
 			}
 		},
 
-		prevBlock: function ()
+		prevBlock: function (callback)
 		{
 			if (holderIndex > 1)
 			{
 				currentIndex = holderIndex = (holderIndex - 1);
-				fastuts.displayBlock(element[(holderIndex - 1)]);
-				fastuts.displayButtons(currentIndex, elementSize);
+				fn.displayBlock(element[(holderIndex - 1)]);
+				fn.displayButtons(currentIndex, elementSize);
+				callback();
 			}
 		}
 
 	};
 
-	fastuts.init();
+	fn.init();
 
 };
