@@ -1,4 +1,4 @@
-#GM's fastuts.js
+#fastuts.js
 
 ### What is it?
 
