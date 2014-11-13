@@ -9,6 +9,12 @@ A fast way to display quick tutorials for your application or website
   - Allows callback functions;
   - jQuery required.
 
+---
+
+[View the demo](https://guimadaleno.github.io/demos/fastuts.js)
+
+---
+
 ### How to use?
 
 ##### One-line-to-go
@@ -32,6 +38,8 @@ Don't have time? Do it.
 $('.fastuts').fastuts();
 ```
 And that's all! Enjoy your content in your table.
+
+---
 
 ##### Complete mode
 Would you like to fully customize **fastuts.js**? Here's all the options:
@@ -91,11 +99,14 @@ $('.fastuts').fastuts
 });
 ```
 
-### Help?
-Tweet me: **@guimadaleno**
+---
 
-License
-----
-GNU
+### Help?
+Tweet me: [@guimadaleno](http://twitter.com/guimadaleno)
+
+---
+
+### License
+GNU GPL
 
 Peace!
