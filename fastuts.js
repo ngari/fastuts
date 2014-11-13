@@ -16,6 +16,8 @@ $.fn.fastuts = function (options)
 	var classTooltip 			= ".fastuts-tooltip";
 	var currentIndex 			= 0;
 	var element 				= this;
+	var elementNumbered 		= new Array();
+	var elementAttrCounter		= 0;
 	var elementSelector 		= this.selector;
 	var elementSize 			= $(element).size();
 	var holderIndex 			= 1;
@@ -27,6 +29,22 @@ $.fn.fastuts = function (options)
 	{
 		init: function()
 		{
+			$(element).each(function()
+			{
+				if ($(this).attr('data-fastuts-order'))
+					elementAttrCounter++;
+			});
+			if (elementAttrCounter == elementSize)
+			{
+				var currentNumber = 0;
+				$(element).each(function()
+				{
+					currentNumber = parseInt($(this).attr('data-fastuts-order'));
+					elementNumbered[(currentNumber - 1)] = this;
+				});
+				if (elementNumbered.length)
+					element = elementNumbered;
+			}
 
 			$('body').append('<div id="fastuts-main-holder" class="fastuts-main-holder" style="display: none;"><div class="fastuts-overlay"></div><div class="fastuts-holder"><div class="' + classTooltip.replace('.', '') + '"><div class="fastuts-text"></div><div class="fastuts-buttons"><a href="#" class="' + classButtonClose.replace('.', '') + '">' + textButtonClose + '</a><a href="#" class="' + classButtonPrev.replace('.', '') + '">' + textButtonPrev + '</a><a href="#" class="' + classButtonNext.replace('.', '') + '">' + textButtonNext + '</a></div></div></div></div>');
 

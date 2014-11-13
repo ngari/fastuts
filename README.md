@@ -21,13 +21,13 @@ A faster way to display quick tutorials for your application or website
 
 Don't have time? Do it.
 
-- First off, include the `fastuts.js` and `fastuts.css` to your project, then, add the class `fastuts` to all the elements you want to introduce to people, as the example below:
+- First off, include the `fastuts.js` and `fastuts.css` to your project, then, add the class `fastuts` to all the elements you want to introduce to people, as the example below. Please note that you'll need to insert a tip into the attribute `data-fastuts-tip` and optionally, a sequence number into the attribute `data-fastuts-order`.
 ```
-<div class="fastuts" data-fastuts-tip="Put a short tip right here">
+<div class="fastuts" data-fastuts-tip="Put a short tip right here" data-fastuts-order="2">
 	<h4>Some random content one</h4>
 	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 </div>
-<div class="fastuts" data-fastuts-tip="Another tip">
+<div class="fastuts" data-fastuts-tip="Another tip" data-fastuts-order="1">
 	<h4>Some random content two</h4>
 	<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 </div>
