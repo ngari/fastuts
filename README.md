@@ -2,7 +2,7 @@
 
 ### What is it?
 
-A fast way to display quick tutorials for your application or website
+A faster way to display quick tutorials for your application or website
 
   - It's tiny! Just 5KB;
   - Easy to customize;
