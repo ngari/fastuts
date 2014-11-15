@@ -1,3 +1,17 @@
+/*
+	fastuts.js
+
+	Developed by Guilherme Augusto Madaleno <guimadaleno@me.com>
+	www.guimadaleno.com
+	(C) 2014 All rights reserved
+	Licensed under GNU GPL
+*/
+
+.fastuts-overlay
+{
+	/*background-color: rgba(255,255,255,0.9) !important;*/
+}
+
 .fastuts-holder
 {
 	border-radius: 10px;
@@ -53,7 +67,7 @@
 {
 	display: block;
 	position: absolute;
-	width: 400px;
+	width: 300px;
 	background-color: #428bca;
 	color: white;
 	border-radius: 10px;
@@ -91,4 +105,24 @@
 		border-width: 15px 15px 0;
 		height: 100%;
 		top: 100%;
+	}
+
+	/* Left arrow */
+
+	.fastuts-tooltip.fastuts-tooltip-arrow-left:after
+	{
+		left: 20px;
+		right: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Right arrow */
+
+	.fastuts-tooltip.fastuts-tooltip-arrow-right:after
+	{
+		left: auto;
+		right: 20px;
+		margin-left: auto;
+		margin-right: auto;
 	}

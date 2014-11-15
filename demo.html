@@ -16,55 +16,41 @@
 
 			<h1>fastuts.js</h1>
 
-			<!-- Subtitle block ordered to be the: 1st -->
-
-			<p class="lead fastuts" data-fastuts-tip="First you need to read this" data-fastuts-order="1">A faster way to display quick tutorials in your application or website using jQuery.</p>
+			<p class="lead fastuts" data-fastuts-tip="Let's start explaining this..." data-fastuts-order="1">A faster way to display quick tutorials in your application or website using jQuery.</p>
 
 			<p><button type="button" class="btn btn-success test-click">Let's get started</button></p>
 
 			<hr>
 
-			<div style="width: 100%; display: inline-block;">
+			<div class="fastuts" data-fastuts-tip="And finally you're done! Click back if you want to repeat an explanation you missed." data-fastuts-order="5">
+				<h4>Subheading</h4>
+				<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+				<h4>Subheading</h4>
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+				<h4>Subheading</h4>
+				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
 
-				<!-- Content block ordered to be the: 5th -->
+			<div class="fastuts" data-fastuts-tip="Then, take a look at this..." data-fastuts-order="2">
+				<h4>Subheading</h4>
+				<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+				<h4>Subheading</h4>
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+				<h4>Subheading</h4>
+				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
 
-				<div class="col-lg-6 fastuts" data-fastuts-tip="After it, you read this" data-fastuts-order="5">
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				</div>
+			<div class="fastuts" data-fastuts-tip="You're doing very well. Click next now..." data-fastuts-order="3">
+				<h4>Subheading</h4>
+				<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+				<h4>Subheading</h4>
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+				<h4>Subheading</h4>
+				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
 
-				<!-- Content block ordered to be the: 2nd -->
-
-				<div class="col-lg-6 fastuts" data-fastuts-tip="Then, you read this..." data-fastuts-order="2">
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				</div>
-
-				<!-- Content block ordered to be the: 3rd -->
-
-				<div class="col-lg-6 fastuts" data-fastuts-tip="Once more tip..." data-fastuts-order="3">
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				</div>
-
-				<!-- Content block ordered to be the: 4th -->
-
-				<div class="col-lg-6 fastuts" data-fastuts-tip="And finally, this. Well done!" data-fastuts-order="4">
-					<img src="http://lorempixel.com/450/227/" alt="">
-				</div>
-
+			<div class="fastuts" data-fastuts-tip="Well done! One more to go..." data-fastuts-order="4">
+				<img src="http://lorempixel.com/450/227/" alt="">
 			</div>
 
 			<hr>
@@ -76,7 +62,7 @@
 	</body>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="fastuts.js"></script>
+	<script src="fastuts.min.js"></script>
 	<script>
 
 		$('.test-click').click(function()
@@ -91,7 +77,8 @@
 				{
 					spacing: '40px',
 					time: 0.2,
-					allowKeys: true
+					allowKeys: true,
+					autoScroll: true
 				},
 
 				/* Buttons settings */
