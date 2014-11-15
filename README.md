@@ -58,6 +58,7 @@ $('.fastuts').fastuts
 	{
 		spacing: '40px',
 		time: 0.2,
+		autoScroll: true,
 		allowKeys: true
 	},
 	buttons:
