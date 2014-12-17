@@ -49,7 +49,7 @@ $.fn.fastuts = function (options)
 			{
 				class: 		'fastuts-button-close',
 				text: 		'Close',
-				callback: 	(options && options.buttons && options.buttons.prev && options.buttons.close.callback && $.type(options.buttons.close.callback) === 'function') ? options.buttons.close.callback : false
+				callback: 	(options && options.buttons && options.buttons.close && options.buttons.close.callback && $.type(options.buttons.close.callback) === 'function') ? options.buttons.close.callback : false
 			},
 
 			prev:
@@ -63,7 +63,7 @@ $.fn.fastuts = function (options)
 			{
 				class: 		'fastuts-button-next',
 				text: 		'&#10095;',
-				callback: 	(options && options.buttons && options.buttons.prev && options.buttons.next.callback && $.type(options.buttons.next.callback) === 'function') ? options.buttons.next.callback : false
+				callback: 	(options && options.buttons && options.buttons.next && options.buttons.next.callback && $.type(options.buttons.next.callback) === 'function') ? options.buttons.next.callback : false
 			}
 
 		},
