@@ -65,7 +65,6 @@ $('.fastuts').fastuts
 	{
 		close:
 		{
-			class: '.fastuts-button-close',
 			text: 'Close',
 			callback: function ()
 			{
@@ -74,7 +73,6 @@ $('.fastuts').fastuts
 		},
 		prev:
 		{
-			class: '.fastuts-button-prev',
 			text: '&#10094;',
 			callback: function (index, element)
 			{
@@ -83,7 +81,6 @@ $('.fastuts').fastuts
 		},
 		next:
 		{
-			class: '.fastuts-button-next',
 			text: '&#10095;',
 			callback: function (index, element)
 			{

@@ -80,7 +80,58 @@
 		$('.test-click').click(function()
 		{
 
-			$('.fastuts').fastuts();
+			// $('.fastuts').fastuts();
+
+			$('.fastuts').fastuts
+			({
+			    settings:
+			    {
+			        spacing: '40px',
+			        time: 0.2,
+			        autoScroll: true,
+			        allowKeys: true
+			    },
+			    buttons:
+			    {
+			        close:
+			        {
+			            text: 'Skip',
+			            callback: function ()
+			            {
+			                console.log('Clicked close button');
+			            }
+			        },
+			        prev:
+			        {
+			            text: '&#10094;',
+			            callback: function (index, element)
+			            {
+			                console.log('Clicked back button and moving to element ' + index);
+			            }
+			        },
+			        next:
+			        {
+			            text: '&#10095;',
+			            callback: function (index, element)
+			            {
+			                console.log('Clicked next button and moving to element ' + index);
+			            }
+			        }
+			    },
+			    overlay:
+			    {
+			        color: 'rgba(0,0,0,0.8)',
+			        allowEscapeKey: true,
+			        onClose: function ()
+			        {
+			            console.log('Clicked on overlay to close');
+			        }
+			    },
+			    onReady: function ()
+			    {
+			        console.log('Fastuts ready!');
+			    },
+			});
 
 		});
 
