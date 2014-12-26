@@ -15,7 +15,6 @@
 .fastuts-holder
 {
 	border-radius: 10px;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 /* Buttons */
@@ -72,6 +71,7 @@
 	color: white;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+	z-index: 999;
 }
 
 	/* Tooltip arrows */

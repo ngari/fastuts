@@ -10,8 +10,6 @@
 $.fn.fastuts = function (options)
 {
 
-	console.log(options.buttons.close.text);
-
 	/* Default options */
 
 	var opt =
@@ -19,7 +17,7 @@ $.fn.fastuts = function (options)
 
 		/* Fastuts main selector */
 
-		selector: (options && options.selector) ? options.selector : 'fastuts',
+		selector: $(this).selector.replace('.', '').replace('#', ''),
 
 		/* Basic settings */
 
@@ -105,7 +103,7 @@ $.fn.fastuts = function (options)
 			previousElPosition: "data-fastuts-previous-element-position",
 			previousPosition: 	"data-fastuts-previous-position",
 			previousZIndex: 	"data-fastuts-previous-zindex",
-			tip: 				"data-fastuts-tip"
+			tip: 				(options && options.attributes && options.attributes.tip) ? options.attributes.tip : "data-fastuts-tip"
 		},
 
 		/* onReady callback */
