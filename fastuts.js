@@ -1,11 +1,8 @@
-/*
-	fastuts.js
-
-	Developed by Guilherme Augusto Madaleno <guimadaleno@me.com>
-	www.guimadaleno.com
-	(C) 2014 All rights reserved
-	Licensed under GNU GPL
-*/
+/**
+ * fastuts.js
+ * @author Guilherme Augusto Madaleno <guimadaleno@me.com>
+ * @version 0.9
+ */
 
 $.fn.fastuts = function (options)
 {
