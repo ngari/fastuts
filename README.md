@@ -11,7 +11,7 @@ A faster way to display quick tutorials for your application or website
 
 ---
 
-[View the demo](https://guimadaleno.github.io/demos/fastuts.js)
+[View the demo](https://guimadaleno.github.io/demos/fastuts/demo.html)
 
 ---
 
